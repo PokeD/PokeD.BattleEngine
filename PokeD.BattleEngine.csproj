@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A90F84DF-CCFA-4722-9490-A3DF98DAEC95}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PokeD.BattleEngine</RootNamespace>
+    <AssemblyName>PokeD.BattleEngine</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <Folder Include="Battle\Data\" />
+    <Folder Include="Item\" />
+    <Folder Include="Scripts\Attacks\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attack\Calculation\AttackDamageCalculation.cs" />
+    <Compile Include="Attack\Data\AttackCategory.cs" />
+    <Compile Include="Attack\Data\AttackCondition.cs" />
+    <Compile Include="Attack\Data\AttackTarget.cs" />
+    <Compile Include="Battle\Battle.cs" />
+    <Compile Include="IScript.cs" />
+    <Compile Include="PokeType.cs" />
+    <Compile Include="Monster\Data\MonsterExperienceType.cs" />
+    <Compile Include="Monster\Data\MonsterAbility.cs" />
+    <Compile Include="Monster\Data\MonsterCatchInfo.cs" />
+    <Compile Include="Monster\Data\MonsterEggGroup.cs" />
+    <Compile Include="Monster\Data\MonsterGender.cs" />
+    <Compile Include="Monster\Data\MonsterHeldItem.cs" />
+    <Compile Include="Monster\Data\MonsterMoves.cs" />
+    <Compile Include="Monster\Data\MonsterStats.cs" />
+    <Compile Include="Monster\Data\MonsterType.cs" />
+    <Compile Include="Monster\IMonsterInstanceData.cs" />
+    <Compile Include="Monster\IMonsterStaticData.cs" />
+    <Compile Include="Monster\Calculation\MonsterExperienceCalculator.cs" />
+    <Compile Include="Monster\Calculation\MonsterStatCalculator.cs" />
+    <Compile Include="Attack\IAttackInstanceData.cs" />
+    <Compile Include="Attack\IAttackStaticData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trainer\Data\TrainerGender.cs" />
+    <Compile Include="Trainer\ITrainerInstanceData.cs" />
+    <Compile Include="Trainer\ITrainerStaticData.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
