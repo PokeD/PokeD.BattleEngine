@@ -2,7 +2,7 @@ using System;
 
 namespace PokeD.BattleEngine.Monster.Data
 {
-    public enum MonsterStatType
+    public enum StatType
     {
         HP              = 1,
         Attack          = 2,
@@ -11,9 +11,9 @@ namespace PokeD.BattleEngine.Monster.Data
         SpecialDefense  = 5,
         Speed           = 6
     }
-    public class MonsterStats
+    public class Stats
     {
-        public static MonsterStats None => new MonsterStats(0, 0, 0, 0, 0, 0);
+        public static Stats None => new Stats(0, 0, 0, 0, 0, 0);
 
         public short HP { get; }
         public short Attack { get; }
@@ -22,23 +22,23 @@ namespace PokeD.BattleEngine.Monster.Data
         public short SpecialDefense { get; }
         public short Speed { get; }
 
-        public short this[MonsterStatType statType]
+        public short this[StatType statType]
         {
             get
             {
                 switch (statType)
                 {
-                    case MonsterStatType.HP:
+                    case StatType.HP:
                         return HP;
-                    case MonsterStatType.Attack:
+                    case StatType.Attack:
                         return Attack;
-                    case MonsterStatType.Defense:
+                    case StatType.Defense:
                         return Defense;
-                    case MonsterStatType.SpecialAttack:
+                    case StatType.SpecialAttack:
                         return SpecialAttack;
-                    case MonsterStatType.SpecialDefense:
+                    case StatType.SpecialDefense:
                         return SpecialDefense;
-                    case MonsterStatType.Speed:
+                    case StatType.Speed:
                         return Speed;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -74,7 +74,7 @@ namespace PokeD.BattleEngine.Monster.Data
             */
         }
         
-        public MonsterStats(short hp, short attack, short defense, short specialAttack, short specialDefense, short speed)
+        public Stats(short hp, short attack, short defense, short specialAttack, short specialDefense, short speed)
         {
             HP = hp;
             Attack = attack;
@@ -86,21 +86,21 @@ namespace PokeD.BattleEngine.Monster.Data
         
         public override string ToString() => $"HP: {HP}, Atk: {Attack}, Def: {Defense}, SpAtt: {SpecialAttack}, SpDef: {SpecialDefense}, Spe: {Speed}";
 
-        public short GetStat(MonsterStatType statType)
+        public short GetStat(StatType statType)
         {
             switch (statType)
             {
-                case MonsterStatType.HP:
+                case StatType.HP:
                     return HP;
-                case MonsterStatType.Attack:
+                case StatType.Attack:
                     return Attack;
-                case MonsterStatType.Defense:
+                case StatType.Defense:
                     return Defense;
-                case MonsterStatType.SpecialAttack:
+                case StatType.SpecialAttack:
                     return SpecialAttack;
-                case MonsterStatType.SpecialDefense:
+                case StatType.SpecialDefense:
                     return SpecialDefense;
-                case MonsterStatType.Speed:
+                case StatType.Speed:
                     return Speed;
             }
 

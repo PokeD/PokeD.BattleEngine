@@ -1,6 +1,6 @@
 ﻿namespace PokeD.BattleEngine.Trainer.Data
 {
-    public enum TrainerGender
+    public enum Gender
     {
         Male,
         Female

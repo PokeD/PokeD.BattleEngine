@@ -10,6 +10,6 @@ namespace PokeD.BattleEngine.Trainer
         short TrainerID { get; }
         short SecretID { get; }
 
-        TrainerGender Gender { get; }
+        Gender Gender { get; }
     }
 }

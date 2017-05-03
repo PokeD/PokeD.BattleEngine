@@ -2,8 +2,7 @@
 {
     public interface ITrainerStaticData
     {
-        string ID { get; }
-        string Name { get; }
-
+        //string ID { get; }
+        //string Name { get; }
     }
 }

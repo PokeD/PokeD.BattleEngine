@@ -1,6 +1,6 @@
 ﻿namespace PokeD.BattleEngine.Monster.Data
 {
-    public enum MonsterGender
+    public enum Gender
     {
         Male,
         Female,

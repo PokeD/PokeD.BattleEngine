@@ -13,8 +13,8 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile44</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,37 +35,50 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <Folder Include="Battle\Data\" />
-    <Folder Include="Item\" />
     <Folder Include="Scripts\Attacks\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attack\Calculation\AttackDamageCalculation.cs" />
-    <Compile Include="Attack\Data\AttackCategory.cs" />
-    <Compile Include="Attack\Data\AttackCondition.cs" />
-    <Compile Include="Attack\Data\AttackTarget.cs" />
+    <Compile Include="Attack\IAttack.cs" />
+    <Compile Include="Attack\Calculation\DamageCalculation.cs" />
+    <Compile Include="Attack\Data\Category.cs" />
+    <Compile Include="Attack\Data\Condition.cs" />
+    <Compile Include="Attack\Data\Target.cs" />
     <Compile Include="Battle\Battle.cs" />
-    <Compile Include="IScript.cs" />
-    <Compile Include="PokeType.cs" />
-    <Compile Include="Monster\Data\MonsterExperienceType.cs" />
-    <Compile Include="Monster\Data\MonsterAbility.cs" />
-    <Compile Include="Monster\Data\MonsterCatchInfo.cs" />
-    <Compile Include="Monster\Data\MonsterEggGroup.cs" />
-    <Compile Include="Monster\Data\MonsterGender.cs" />
-    <Compile Include="Monster\Data\MonsterHeldItem.cs" />
-    <Compile Include="Monster\Data\MonsterMoves.cs" />
-    <Compile Include="Monster\Data\MonsterStats.cs" />
+    <Compile Include="Battle\Data\BattlePokemonsByTrainer.cs" />
+    <Compile Include="Battle\Data\BattleSides.cs" />
+    <Compile Include="Battle\Data\BattleTrainersBySide.cs" />
+    <Compile Include="Battle\Data\Weather.cs" />
+    <Compile Include="Battle\TrainerList.cs" />
+    <Compile Include="Battle\Turn.cs" />
+    <Compile Include="Exceptions\MaximumSizeExceededException.cs" />
+    <Compile Include="Scripts\IScript.cs" />
+    <Compile Include="Item\Bag.cs" />
+    <Compile Include="Item\IItem.cs" />
+    <Compile Include="Item\IItemContainer.cs" />
+    <Compile Include="Monster\Data\EvolutionCondition.cs" />
+    <Compile Include="Monster\IMonster.cs" />
+    <Compile Include="OrderedInvocationList.cs" />
     <Compile Include="Monster\Data\MonsterType.cs" />
-    <Compile Include="Monster\IMonsterInstanceData.cs" />
+    <Compile Include="Monster\Data\ExperienceType.cs" />
+    <Compile Include="Monster\Data\Ability.cs" />
+    <Compile Include="Monster\Data\CatchInfo.cs" />
+    <Compile Include="Monster\Data\EggGroup.cs" />
+    <Compile Include="Monster\Data\Gender.cs" />
+    <Compile Include="Monster\Data\HeldItem.cs" />
+    <Compile Include="Monster\Data\Move.cs" />
+    <Compile Include="Monster\Data\Stats.cs" />
+    <Compile Include="Monster\IMonsterInstance.cs" />
     <Compile Include="Monster\IMonsterStaticData.cs" />
-    <Compile Include="Monster\Calculation\MonsterExperienceCalculator.cs" />
-    <Compile Include="Monster\Calculation\MonsterStatCalculator.cs" />
+    <Compile Include="Monster\Calculation\ExperienceCalculator.cs" />
+    <Compile Include="Monster\Calculation\StatCalculator.cs" />
     <Compile Include="Attack\IAttackInstanceData.cs" />
     <Compile Include="Attack\IAttackStaticData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Trainer\Data\TrainerGender.cs" />
+    <Compile Include="Trainer\Data\Gender.cs" />
+    <Compile Include="Trainer\Data\IIMonsterTeam.cs" />
     <Compile Include="Trainer\ITrainerInstanceData.cs" />
     <Compile Include="Trainer\ITrainerStaticData.cs" />
+    <Compile Include="Trainer\ITrainer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

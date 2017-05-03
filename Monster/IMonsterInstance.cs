@@ -2,27 +2,27 @@
 
 namespace PokeD.BattleEngine.Monster
 {
-    public interface IMonsterInstanceData
+    public interface IMonsterInstance
     {
         IMonsterStaticData StaticData { get; }
 
         short Species { get; }
         ushort SecretID { get; }
-        MonsterCatchInfo CatchInfo { get; }
+        CatchInfo CatchInfo { get; }
 
         uint PersonalityValue { get; }
 
-        MonsterGender Gender { get; }
+        Gender Gender { get; }
 
-        MonsterAbility Ability { get; }
+        Ability Ability { get; }
         byte Nature { get; }
 
         int Experience { get; }
         byte Level { get; }
 
-        MonsterStats IV { get; }
-        MonsterStats EV { get; }
-        MonsterStats HiddenEV { get; }
+        Stats IV { get; }
+        Stats EV { get; }
+        Stats HiddenEV { get; }
 
         short CurrentHP { get; }
         short StatusEffect { get; }
@@ -30,7 +30,7 @@ namespace PokeD.BattleEngine.Monster
         byte Affection { get; }
         byte Friendship { get; }
 
-        MonsterMoves Moves { get; }
+        Moves Moves { get; }
 
         short HeldItem { get; }
     }

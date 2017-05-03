@@ -1,10 +1,11 @@
 using System;
+using PokeD.BattleEngine.Scripts;
 
 namespace PokeD.BattleEngine.Monster.Data
 {
-    public class MonsterMove
+    public class Move
     {
-        public static MonsterMove None => new MonsterMove(0, 0, "NONE");
+        public static Move None => new Move(0, 0, "NONE");
 
         public int ID { get; }
         public int PPUPs { get; }
@@ -12,7 +13,7 @@ namespace PokeD.BattleEngine.Monster.Data
         public IScript Script { get; }
 
 
-        public MonsterMove(int id, int ppUPs, string name)
+        public Move(int id, int ppUPs, string name)
         {
             ID = id;
             PPUPs = ppUPs;
@@ -20,16 +21,16 @@ namespace PokeD.BattleEngine.Monster.Data
         }
     }
 
-    public class MonsterMoves
+    public class Moves
     {
-        public static MonsterMoves None => new MonsterMoves();
+        public static Moves None => new Moves();
 
-        public MonsterMove Move_0 { get; } = MonsterMove.None;
-        public MonsterMove Move_1 { get; } = MonsterMove.None;
-        public MonsterMove Move_2 { get; } = MonsterMove.None;
-        public MonsterMove Move_3 { get; } = MonsterMove.None;
+        public Move Move_0 { get; } = Move.None;
+        public Move Move_1 { get; } = Move.None;
+        public Move Move_2 { get; } = Move.None;
+        public Move Move_3 { get; } = Move.None;
 
-        public MonsterMoves(params MonsterMove[] moves)
+        public Moves(params Move[] moves)
         {
             if (moves.Length > 0)
                 Move_0 = moves[0];
@@ -48,7 +49,7 @@ namespace PokeD.BattleEngine.Monster.Data
         }
 
 
-        public bool Contains(MonsterMove move) => Move_0 == move || Move_1 == move || Move_2 == move || Move_3 == move;
+        public bool Contains(Move move) => Move_0 == move || Move_1 == move || Move_2 == move || Move_3 == move;
         public bool Contains(short moveID) => Move_0.ID == moveID || Move_1.ID == moveID || Move_2.ID == moveID || Move_3.ID == moveID;
     }
 }

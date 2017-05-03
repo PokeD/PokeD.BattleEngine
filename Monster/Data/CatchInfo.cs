@@ -1,8 +1,8 @@
 namespace PokeD.BattleEngine.Monster.Data
 {
-    public class MonsterCatchInfo
+    public class CatchInfo
     {
-        public static MonsterCatchInfo None => new MonsterCatchInfo();
+        public static CatchInfo None => new CatchInfo();
 
         public string Full => $"{Method} {Location}";
         public string Method { get; set; } = string.Empty;

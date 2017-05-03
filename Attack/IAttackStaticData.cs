@@ -1,4 +1,6 @@
 ﻿using PokeD.BattleEngine.Attack.Data;
+using PokeD.BattleEngine.Monster.Data;
+using PokeD.BattleEngine.Scripts;
 
 namespace PokeD.BattleEngine.Attack
 {
@@ -7,9 +9,9 @@ namespace PokeD.BattleEngine.Attack
         short ID { get; }
         string Name { get; }
 
-        AttackTarget AttackTarget { get; }
-        AttackCategory DamageCategory { get; }
-        AttackCondition AttackCondition { get; }
+        Target AttackTarget { get; }
+        Category DamageCategory { get; }
+        Condition AttackCondition { get; }
 
         byte Power { get; }
         byte Accuracy { get; }
@@ -19,7 +21,7 @@ namespace PokeD.BattleEngine.Attack
         byte PPMax { get; }
 
         byte StatusEffectChance { get; }
-        PokeType StatusEffectType { get; }
+        MonsterType StatusEffectType { get; }
 
         IScript Script { get; }
     }

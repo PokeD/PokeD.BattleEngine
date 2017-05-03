@@ -2,26 +2,26 @@ using System;
 
 namespace PokeD.BattleEngine.Monster.Data
 {
-    public class MonsterEggGroup
+    public class EggGroup
     {
-        public static MonsterEggGroup None => new MonsterEggGroup(0, "NONE");
+        public static EggGroup None => new EggGroup(0, "NONE");
 
         public int ID { get; }
         public string Name { get; }
 
-        public MonsterEggGroup(int id, string name) { ID = id; Name = name; }
+        public EggGroup(int id, string name) { ID = id; Name = name; }
 
         public override string ToString() => $"{Name}, ID: {ID}";
     }
 
-    public class MonsterEggGroups
+    public class EggGroups
     {
-        public static MonsterEggGroups None => new MonsterEggGroups();
+        public static EggGroups None => new EggGroups();
 
-        public MonsterEggGroup Type_0 { get; } = MonsterEggGroup.None;
-        public MonsterEggGroup Type_1 { get; } = MonsterEggGroup.None;
+        public EggGroup Type_0 { get; } = EggGroup.None;
+        public EggGroup Type_1 { get; } = EggGroup.None;
 
-        public MonsterEggGroups(params MonsterEggGroup[] eggGroups)
+        public EggGroups(params EggGroup[] eggGroups)
         {
             if (eggGroups.Length > 0)
                 Type_0 = eggGroups[0];
@@ -36,7 +36,7 @@ namespace PokeD.BattleEngine.Monster.Data
         public override string ToString() => $"Type1: {Type_0}; Type2: {Type_1}";
 
 
-        public bool Contains(MonsterEggGroup eggGroup) => Type_0 == eggGroup || Type_1 == eggGroup;
+        public bool Contains(EggGroup eggGroup) => Type_0 == eggGroup || Type_1 == eggGroup;
         public bool Contains(short eggGroupID) => Type_0.ID == eggGroupID || Type_1.ID == eggGroupID;
     }
 }

@@ -8,7 +8,7 @@
         SpecialNormal
     }
 
-    public static class AttackDamageCalculation
+    public static class DamageCalculation
     {
     }
 }

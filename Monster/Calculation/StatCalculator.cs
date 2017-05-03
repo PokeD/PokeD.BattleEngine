@@ -4,23 +4,23 @@ using PokeD.BattleEngine.Monster.Data;
 
 namespace PokeD.BattleEngine.Monster.Calculation
 {
-    public static class MonsterStatCalculator
+    public static class StatCalculator
     {
-        public static MonsterStats CalculateStats(IMonsterInstanceData instanceData)
+        public static Stats CalculateStats(IMonsterInstance instanceData)
         {
-            var hp = CalculateStat(instanceData, MonsterStatType.HP);
-            var attack = CalculateStat(instanceData, MonsterStatType.Attack);
-            var defence = CalculateStat(instanceData, MonsterStatType.Defense);
-            var spAttack = CalculateStat(instanceData, MonsterStatType.SpecialAttack);
-            var spDefence = CalculateStat(instanceData, MonsterStatType.SpecialDefense);
-            var speed = CalculateStat(instanceData, MonsterStatType.Speed);
+            var hp = CalculateStat(instanceData, StatType.HP);
+            var attack = CalculateStat(instanceData, StatType.Attack);
+            var defence = CalculateStat(instanceData, StatType.Defense);
+            var spAttack = CalculateStat(instanceData, StatType.SpecialAttack);
+            var spDefence = CalculateStat(instanceData, StatType.SpecialDefense);
+            var speed = CalculateStat(instanceData, StatType.Speed);
 
-            return new MonsterStats(hp, attack, defence, spAttack, spDefence, speed);
+            return new Stats(hp, attack, defence, spAttack, spDefence, speed);
         }
 
-        public static short CalculateStat(IMonsterInstanceData instanceData, MonsterStatType statType)
+        public static short CalculateStat(IMonsterInstance instanceData, StatType statType)
         {
-            if (statType == MonsterStatType.HP)
+            if (statType == StatType.HP)
                 return CalculateHP(instanceData);
 
             // Stat = 
@@ -39,7 +39,7 @@ namespace PokeD.BattleEngine.Monster.Calculation
 
             return (short) ((Math.Floor((Math.Floor(2 * baseStat + IV + Math.Floor((double) EV / 4)) * instanceData.Level) / 100) + 5) * nature);
         }
-        private static short CalculateHP(IMonsterInstanceData instanceData)
+        private static short CalculateHP(IMonsterInstance instanceData)
         {
             // HP = 
             // (floor((2 * Base + IV + floor(EV / 4)) * Level) + Level + 10)

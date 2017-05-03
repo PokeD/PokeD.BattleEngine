@@ -1,6 +1,6 @@
 ﻿namespace PokeD.BattleEngine.Attack.Data
 {
-    public enum AttackTarget
+    public enum Target
     {
         Self,
         SelfAdjacentAllies,

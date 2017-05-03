@@ -1,7 +1,7 @@
 
 namespace PokeD.BattleEngine.Monster.Data
 {
-    public enum MonsterExperienceType
+    public enum ExperienceType
     {
         Slow        = 1,
         MediumFast  = 2,

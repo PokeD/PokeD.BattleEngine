@@ -5,28 +5,29 @@ using PokeD.BattleEngine.Monster.Data;
 
 namespace PokeD.BattleEngine.Monster.Calculation
 {
-    public static class MonsterExperienceCalculator
+    public static class ExperienceCalculator
     {
-        public static int GainExperience(ITrainerInstanceData trainer, IMonsterInstanceData victorious, IMonsterInstanceData fainted, bool hasParticipatedAndExpShare = false, bool useScaled = false)
+        public static int GainExperience(ITrainerInstanceData trainer, IMonsterInstance victorious, IMonsterInstance fainted, bool hasParticipatedAndExpShare = false, bool useScaled = false)
         {
-            double a = fainted.CatchInfo.TrainerID == 0 ? 1 : 1.5; // is wild
+            double a = fainted.CatchInfo.TrainerID == 0 ? 1D : 1.5D; // is wild
             double b = fainted.StaticData.RewardExperience;
-            double e = victorious.HeldItem == 0 ? 1.5 : 0;
-            double f = victorious.Affection >= 2 ? 1.2 : 1;
+            double e = victorious.HeldItem == 0 ? 1.5D : 0D;
+            double f = victorious.Affection >= 2 ? 1.2D : 1D;
             double l = fainted.Level;
             double lp = victorious.Level;
-            double p = 1;
-            double s = hasParticipatedAndExpShare ? 2 : 1;
-            double t = trainer.TrainerID == victorious.CatchInfo.TrainerID ? 1.5 : 1;
-            double v = victorious.Level > victorious.StaticData.LevelEvolveRequirement ? 1.2 : 1;
+            double p = 1D;
+            double s = hasParticipatedAndExpShare ? 2D : 1D;
+            double t = trainer.TrainerID == victorious.CatchInfo.TrainerID ? 1.5D : 1D;
+            //double v = victorious.Level > victorious.StaticData.LevelEvolveRequirement ? 1.2 : 1;
+            double v = 1;
 
             if (!useScaled)
-                return (int) ((a * t * b * e * l * p * f * v) / 7 * s);
+                return (int) ((a * t * b * e * l * p * f * v) / 7D * s);
             else
-                return (int) ((((a * b * l) / 5 * s) * (Math.Pow(2 * l + 10, 2.5) / Math.Pow(l + lp + 10, 2.5)) + 1) * t * e * p);
+                return (int) ((((a * b * l) / 5D * s) * (Math.Pow(2D * l + 10D, 2.5D) / Math.Pow(l + lp + 10D, 2.5D)) + 1D) * t * e * p);
         }
 
-        public static byte LevelForExperienceValue(MonsterExperienceType experienceType, int experience)
+        public static byte LevelForExperienceValue(ExperienceType experienceType, int experience)
         {
             // returns level 1 if no experience (or negative value):
             if (experience <= 0)
@@ -38,28 +39,28 @@ namespace PokeD.BattleEngine.Monster.Calculation
 
             return level;
         }
-        public static int ExperienceNeededForLevel(MonsterExperienceType experienceType, int level)
+        public static int ExperienceNeededForLevel(ExperienceType experienceType, int level)
         {
             switch (experienceType)
             {
-                case MonsterExperienceType.Erratic:
+                case ExperienceType.Erratic:
                     return (int) Math.Round(ExperienceNeededForLevelErratic(level));
-                case MonsterExperienceType.Fast:
+                case ExperienceType.Fast:
                     return (int) Math.Round(ExperienceNeededForLevelFast(level));
-                case MonsterExperienceType.MediumFast:
+                case ExperienceType.MediumFast:
                     return (int) Math.Round(ExperienceNeededForLevelMediumFast(level));
-                case MonsterExperienceType.MediumSlow:
+                case ExperienceType.MediumSlow:
                     return (int) Math.Round(ExperienceNeededForLevelMediumSlow(level));
-                case MonsterExperienceType.Slow:
+                case ExperienceType.Slow:
                     return (int) Math.Round(ExperienceNeededForLevelSlow(level));
-                case MonsterExperienceType.Fluctuating:
+                case ExperienceType.Fluctuating:
                     return (int) Math.Round(ExperienceNeededForLevelFluctuating(level));
                 default:
                     return (int) Math.Round(ExperienceNeededForLevelMediumFast(level));
             }
         }
         
-        private static double ExperienceNeededForLevelErratic(double level)
+        private static double ExperienceNeededForLevelErratic(int level)
         {
             // EXP = 
             // level <= 50:         ((pow(level, 3) * (100 - level)) / 50)
@@ -68,45 +69,45 @@ namespace PokeD.BattleEngine.Monster.Calculation
             // 98 <= level <= 100:  ((pow(level, 3) * (160 - level)) / 100)
 
             if (level <= 50)
-                return (Math.Pow(level, 3) * (100 - level)) / 50;
+                return (Math.Pow(level, 3D) * (100D - level)) / 50D;
             else if (50 <= level && level <= 68)
-                return (Math.Pow(level, 3) * (150 - level)) / 100;
+                return (Math.Pow(level, 3D) * (150D - level)) / 100D;
             else if (68 <= level && level <= 98)
-                return (Math.Pow(level, 3) * Math.Floor((1911 - (10 * level)) / 3)) / 500;
+                return (Math.Pow(level, 3D) * Math.Floor((1911D - (10D * level)) / 3D)) / 500D;
             else if (98 <= level && level <= 100)
-                return (Math.Pow(level, 3) * (160 - level)) / 100;
+                return (Math.Pow(level, 3D) * (160D - level)) / 100D;
             else
                 throw new Exception();
         }
-        private static double ExperienceNeededForLevelFast(double level)
+        private static double ExperienceNeededForLevelFast(int level)
         {
             // EXP = 
             // ((4 * pow(level, 3)) / 5)
 
-            return (4 * Math.Pow(level, 3)) / 5;
+            return (4D * Math.Pow(level, 3D)) / 5D;
         }
-        private static double ExperienceNeededForLevelMediumFast(double level)
+        private static double ExperienceNeededForLevelMediumFast(int level)
         {
             // EXP =
             // (pow(level, 3))
 
-            return Math.Pow(level, 3);
+            return Math.Pow(level, 3D);
         }
-        private static double ExperienceNeededForLevelMediumSlow(double level)
+        private static double ExperienceNeededForLevelMediumSlow(int level)
         {
             // EXP = 
             // (((6 / 5) * pow(level, 3)) - (15 * pow(level, 2)) + (100 * level) - 140)
 
-            return ((6.0f / 5.0f) * Math.Pow(level, 3)) - (15 * Math.Pow(level, 2)) + (100 * level) - 140;
+            return ((6.0D / 5.0D) * Math.Pow(level, 3D)) - (15D * Math.Pow(level, 2D)) + (100D * level) - 140D;
         }
-        private static double ExperienceNeededForLevelSlow(double level)
+        private static double ExperienceNeededForLevelSlow(int level)
         {
             // EXP = 
             // ((5 * pow(level, 3)) / 4)
 
-            return (5 * Math.Pow(level, 3)) / 4;
+            return (5D * Math.Pow(level, 3D)) / 4D;
         }
-        private static double ExperienceNeededForLevelFluctuating(double level)
+        private static double ExperienceNeededForLevelFluctuating(int level)
         {
             // EXP = 
             // level <= 15: (pow(level, 3) * ((floor((level + 1) / 3) + 24) / 50))
@@ -114,11 +115,11 @@ namespace PokeD.BattleEngine.Monster.Calculation
             // 36 <= level <= 100: (pow(level, 3) * ((floor(level / 2) + 32) / 50))
 
             if (level <= 15)
-                return Math.Pow(level, 3) * ((Math.Floor((level + 1) / 3) + 24) / 50);
+                return Math.Pow(level, 3D) * ((Math.Floor((level + 1D) / 3D) + 24D) / 50D);
             else if (15 <= level && level <= 36)
-                return Math.Pow(level, 3) * ((level + 14) / 50);
+                return Math.Pow(level, 3D) * ((level + 14D) / 50D);
             else if (36 <= level && level <= 100)
-                return Math.Pow(level, 3) * ((Math.Floor(level / 2) + 32) / 50);
+                return Math.Pow(level, 3D) * ((Math.Floor(level / 2D) + 32D) / 50D);
             else
                 throw new Exception();
         }

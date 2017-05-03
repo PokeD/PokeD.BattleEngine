@@ -1,6 +1,6 @@
 ﻿namespace PokeD.BattleEngine.Attack.Data
 {
-    public enum AttackCondition
+    public enum Condition
     {
         Cool,
         Beautiful,

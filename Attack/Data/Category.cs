@@ -1,6 +1,6 @@
 ﻿namespace PokeD.BattleEngine.Attack.Data
 {
-    public enum AttackCategory
+    public enum Category
     {
         Physical,
         Special,
