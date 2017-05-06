@@ -2,15 +2,6 @@ using System;
 
 namespace PokeD.BattleEngine.Monster.Data
 {
-    public enum StatType
-    {
-        HP              = 1,
-        Attack          = 2,
-        Defense         = 3,
-        SpecialAttack   = 4,
-        SpecialDefense  = 5,
-        Speed           = 6
-    }
     public class Stats
     {
         public static Stats None => new Stats(0, 0, 0, 0, 0, 0);

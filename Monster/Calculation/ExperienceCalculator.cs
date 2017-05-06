@@ -7,7 +7,7 @@ namespace PokeD.BattleEngine.Monster.Calculation
 {
     public static class ExperienceCalculator
     {
-        public static int GainExperience(ITrainerInstanceData trainer, IMonsterInstance victorious, IMonsterInstance fainted, bool hasParticipatedAndExpShare = false, bool useScaled = false)
+        public static int GainExperience(ITrainerInstanceData trainer, BaseMonsterInstance victorious, BaseMonsterInstance fainted, bool hasParticipatedAndExpShare = false, bool useScaled = false)
         {
             double a = fainted.CatchInfo.TrainerID == 0 ? 1D : 1.5D; // is wild
             double b = fainted.StaticData.RewardExperience;
@@ -27,7 +27,7 @@ namespace PokeD.BattleEngine.Monster.Calculation
                 return (int) ((((a * b * l) / 5D * s) * (Math.Pow(2D * l + 10D, 2.5D) / Math.Pow(l + lp + 10D, 2.5D)) + 1D) * t * e * p);
         }
 
-        public static byte LevelForExperienceValue(ExperienceType experienceType, int experience)
+        public static byte LevelForExperienceValue(ExperienceType experienceType, long experience)
         {
             // returns level 1 if no experience (or negative value):
             if (experience <= 0)

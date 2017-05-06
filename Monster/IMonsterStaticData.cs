@@ -1,38 +1,52 @@
-﻿using PokeD.BattleEngine.Monster.Data;
+﻿using System.Collections.Generic;
 
-using System.Collections.Generic;
+using PokeD.BattleEngine.Attack.Data;
+using PokeD.BattleEngine.Item;
+using PokeD.BattleEngine.Monster.Data;
 
 namespace PokeD.BattleEngine.Monster
 {
     public interface IMonsterStaticData
     {
-        Dictionary<byte, Move> MovesLearnableByLevel { get; }
+        short ID { get; }
+        string Name { get; }
 
         int Height { get; }
         int Weight { get; }
-
-        short ID { get; }
-        string Name { get; }
 
         MonsterTypes Types { get; }
         EggGroups EggGroups { get; }
 
         Stats BaseStats { get; }
+        byte BaseHappiness { get; }
+
+        Abilities Abilities { get; }
+
+        IList<IItemStaticData> HeldItems { get; }
 
         byte CatchRate { get; }
         //byte EscapeRate { get; }
 
+        float MaleRatio { get; }
+
         int HatchCycles { get; }
-        
-        byte Color { get; }
-        byte Shape { get; }
-        byte Footprint { get; }
+
+        bool IsBaby { get; }
+
+        bool HasGenderDifferences { get; }
+
+        Color Color { get; }
+        Shape Shape { get; }
+
+        Habitat Habitat { get; }
 
         ExperienceType ExperienceType { get; }
 
         short RewardExperience { get; }
         Stats RewardStats { get; }
 
-        EvolutionCondition EvolutionCondition { get; }
+        IList<EvolvesTo> EvolvesTo { get; }
+
+        IList<AttackLearn> LearnableAttacks { get; }
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace PokeD.BattleEngine.Item
 {
-    public interface IItem
+    public interface IItemInstance
     {
-        int ID { get; }
+        IItemStaticData StaticData { get; }
 
         IItemContainer Holder { get; }
     }

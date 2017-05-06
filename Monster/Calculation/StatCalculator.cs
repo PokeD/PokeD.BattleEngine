@@ -6,7 +6,7 @@ namespace PokeD.BattleEngine.Monster.Calculation
 {
     public static class StatCalculator
     {
-        public static Stats CalculateStats(IMonsterInstance instanceData)
+        public static Stats CalculateStats(BaseMonsterInstance instanceData)
         {
             var hp = CalculateStat(instanceData, StatType.HP);
             var attack = CalculateStat(instanceData, StatType.Attack);
@@ -18,7 +18,7 @@ namespace PokeD.BattleEngine.Monster.Calculation
             return new Stats(hp, attack, defence, spAttack, spDefence, speed);
         }
 
-        public static short CalculateStat(IMonsterInstance instanceData, StatType statType)
+        public static short CalculateStat(BaseMonsterInstance instanceData, StatType statType)
         {
             if (statType == StatType.HP)
                 return CalculateHP(instanceData);
@@ -39,7 +39,7 @@ namespace PokeD.BattleEngine.Monster.Calculation
 
             return (short) ((Math.Floor((Math.Floor(2 * baseStat + IV + Math.Floor((double) EV / 4)) * instanceData.Level) / 100) + 5) * nature);
         }
-        private static short CalculateHP(IMonsterInstance instanceData)
+        private static short CalculateHP(BaseMonsterInstance instanceData)
         {
             // HP = 
             // (floor((2 * Base + IV + floor(EV / 4)) * Level) + Level + 10)

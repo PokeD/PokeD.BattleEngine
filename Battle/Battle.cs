@@ -26,11 +26,11 @@ namespace PokeD.BattleEngine.Battle
     }
 
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
-    public class EnabledPokemonsByTrainerAttribute : Attribute
+    public class EnabledMonstersByTrainerAttribute : Attribute
     {
-        public BattlePokemonsByTrainer Option { get; }
+        public BattleMonstersByTrainer Option { get; }
 
-        public EnabledPokemonsByTrainerAttribute(BattlePokemonsByTrainer option) { Option = option; }
+        public EnabledMonstersByTrainerAttribute(BattleMonstersByTrainer option) { Option = option; }
     }
 
 
@@ -64,7 +64,7 @@ namespace PokeD.BattleEngine.Battle
         #region Values
         public BattleSides Sides { get; }
         public BattleTrainersBySide TrainersBySide { get; }
-        public BattlePokemonsByTrainer PokemonsByTrainer { get; }
+        public BattleMonstersByTrainer MonstersByTrainer { get; }
 
         private Weather _weather;
         protected Weather Weather
@@ -89,18 +89,18 @@ namespace PokeD.BattleEngine.Battle
 
 
 
-        public Battle(BattleSides sides, BattleTrainersBySide trainersBySide, BattlePokemonsByTrainer pokemonsByTrainer, bool enableExperience = true)
+        public Battle(BattleSides sides, BattleTrainersBySide trainersBySide, BattleMonstersByTrainer monstersByTrainer, bool enableExperience = true)
         {
             if (!GetType().GetTypeInfo().GetCustomAttribute<EnabledSidesAttribute>().Option.HasFlag(sides))
                 throw new NotSupportedException();
             if (!GetType().GetTypeInfo().GetCustomAttribute<EnabledTrainersBySideAttribute>().Option.HasFlag(trainersBySide))
                 throw new NotSupportedException();
-            if (!GetType().GetTypeInfo().GetCustomAttribute<EnabledPokemonsByTrainerAttribute>().Option.HasFlag(pokemonsByTrainer))
+            if (!GetType().GetTypeInfo().GetCustomAttribute<EnabledMonstersByTrainerAttribute>().Option.HasFlag(monstersByTrainer))
                 throw new NotSupportedException();
 
             Sides = sides;
             TrainersBySide = trainersBySide;
-            PokemonsByTrainer = pokemonsByTrainer;
+            MonstersByTrainer = monstersByTrainer;
 
 
             _BattleStarted.Add(() =>
@@ -182,10 +182,10 @@ namespace PokeD.BattleEngine.Battle
 
     [EnabledSides(BattleSides.Two)]
     [EnabledTrainersBySide(BattleTrainersBySide.One)]
-    [EnabledPokemonsByTrainer(BattlePokemonsByTrainer.One | BattlePokemonsByTrainer.Two | BattlePokemonsByTrainer.Three)]
+    [EnabledMonstersByTrainer(BattleMonstersByTrainer.One | BattleMonstersByTrainer.Two | BattleMonstersByTrainer.Three)]
     public class Battle1v1 : Battle
     {
-        public Battle1v1(BattlePokemonsByTrainer pokemonsByTrainer, bool enableExperience = true) : base(BattleSides.Two, BattleTrainersBySide.One, pokemonsByTrainer, enableExperience)
+        public Battle1v1(BattleMonstersByTrainer monstersByTrainer, bool enableExperience = true) : base(BattleSides.Two, BattleTrainersBySide.One, monstersByTrainer, enableExperience)
         {
 
         }
@@ -201,10 +201,10 @@ namespace PokeD.BattleEngine.Battle
 
     [EnabledSides(BattleSides.Two)]
     [EnabledTrainersBySide(BattleTrainersBySide.Two)]
-    [EnabledPokemonsByTrainer(BattlePokemonsByTrainer.One | BattlePokemonsByTrainer.Two)]
+    [EnabledMonstersByTrainer(BattleMonstersByTrainer.One | BattleMonstersByTrainer.Two)]
     public class Battle2v2 : Battle
     {
-        public Battle2v2(BattlePokemonsByTrainer pokemonsByTrainer, bool enableExperience = true) : base(BattleSides.Two, BattleTrainersBySide.Two, pokemonsByTrainer, enableExperience)
+        public Battle2v2(BattleMonstersByTrainer monstersByTrainer, bool enableExperience = true) : base(BattleSides.Two, BattleTrainersBySide.Two, monstersByTrainer, enableExperience)
         {
 
         }
@@ -212,10 +212,10 @@ namespace PokeD.BattleEngine.Battle
 
     [EnabledSides(BattleSides.Two)]
     [EnabledTrainersBySide(BattleTrainersBySide.Three)]
-    [EnabledPokemonsByTrainer(BattlePokemonsByTrainer.One)]
+    [EnabledMonstersByTrainer(BattleMonstersByTrainer.One)]
     public class Battle3v3 : Battle
     {
-        public Battle3v3(bool enableExperience = true) : base(BattleSides.Two, BattleTrainersBySide.Two, BattlePokemonsByTrainer.One, enableExperience)
+        public Battle3v3(bool enableExperience = true) : base(BattleSides.Two, BattleTrainersBySide.Two, BattleMonstersByTrainer.One, enableExperience)
         {
 
         }
@@ -223,10 +223,10 @@ namespace PokeD.BattleEngine.Battle
 
     [EnabledSides(BattleSides.Four)]
     [EnabledTrainersBySide(BattleTrainersBySide.One)]
-    [EnabledPokemonsByTrainer(BattlePokemonsByTrainer.One | BattlePokemonsByTrainer.Two)]
+    [EnabledMonstersByTrainer(BattleMonstersByTrainer.One | BattleMonstersByTrainer.Two)]
     public class Battle1v1v1v1 : Battle
     {
-        public Battle1v1v1v1(BattlePokemonsByTrainer pokemonsByTrainer, bool enableExperience = true) : base(BattleSides.Four, BattleTrainersBySide.One, pokemonsByTrainer, enableExperience)
+        public Battle1v1v1v1(BattleMonstersByTrainer monstersByTrainer, bool enableExperience = true) : base(BattleSides.Four, BattleTrainersBySide.One, monstersByTrainer, enableExperience)
         {
 
         }
@@ -234,10 +234,10 @@ namespace PokeD.BattleEngine.Battle
 
     [EnabledSides(BattleSides.Four)]
     [EnabledTrainersBySide(BattleTrainersBySide.One)]
-    [EnabledPokemonsByTrainer(BattlePokemonsByTrainer.One)]
+    [EnabledMonstersByTrainer(BattleMonstersByTrainer.One)]
     public class Battle1v1v1v1v1v1 : Battle
     {
-        public Battle1v1v1v1v1v1(bool enableExperience = true) : base(BattleSides.Four, BattleTrainersBySide.One, BattlePokemonsByTrainer.One, enableExperience)
+        public Battle1v1v1v1v1v1(bool enableExperience = true) : base(BattleSides.Four, BattleTrainersBySide.One, BattleMonstersByTrainer.One, enableExperience)
         {
 
         }

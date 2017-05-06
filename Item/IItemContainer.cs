@@ -2,9 +2,16 @@
 {
     public interface IItemContainer
     {
-        void Attach(IItem item);
-        void Remove(IItem item);
+        void AttachItem(IItemInstance item);
+        void RemoveItem(IItemInstance item);
 
-        bool HoldsItem(int id);
+        bool HoldsItem(IItemStaticData item);
+    }
+    public interface IItemListContainer
+    {
+        void AttachItem(IItemInstance item);
+        void RemoveItem(IItemInstance item);
+
+        bool HoldsItem(IItemStaticData item);
     }
 }

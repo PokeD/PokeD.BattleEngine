@@ -4,12 +4,12 @@ namespace PokeD.BattleEngine.Item
 {
     public class Bag : IItemContainer
     {
-        public List<IItem> Items { get; } = new List<IItem>();
+        public List<IItemInstance> Items { get; } = new List<IItemInstance>();
 
-        public void Attach(IItem item) => Items.Add(item);
-        public void Remove(IItem item) => Items.Remove(item);
+        public void AttachItem(IItemInstance item) => Items.Add(item);
+        public void RemoveItem(IItemInstance item) => Items.Remove(item);
 
 
-        public bool HoldsItem(int id) => Items.Exists(item => item.ID == id);
+        public bool HoldsItem(IItemStaticData item) => Items.Exists(i => i.StaticData == item);
     }
 }

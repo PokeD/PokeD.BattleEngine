@@ -3,7 +3,7 @@
 namespace PokeD.BattleEngine.Battle.Data
 {
     [Flags]
-    public enum BattlePokemonsByTrainer
+    public enum BattleMonstersByTrainer
     {
         One,
         Two,

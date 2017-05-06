@@ -10,8 +10,8 @@ namespace PokeD.BattleEngine.Trainer
         int ID { get; }
 
         IIMonsterTeam Team { get; }
-        
-        IMonsterInstance ForceSwitch(IMonsterInstance toBeSwitchedOut);
+
+        BaseMonsterInstance ForceSwitch(BaseMonsterInstance toBeSwitchedOut);
 
         Turn DoTurn();
     }

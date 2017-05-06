@@ -8,20 +8,20 @@ namespace PokeD.BattleEngine.Attack
     {
         short ID { get; }
         string Name { get; }
+        MonsterType Type { get; }
 
-        Target AttackTarget { get; }
-        Category DamageCategory { get; }
+        Target Target { get; }
+        DamageClass DamageClass { get; }
         Condition AttackCondition { get; }
 
-        byte Power { get; }
-        byte Accuracy { get; }
+        byte? Power { get; }
+        byte? Accuracy { get; }
         byte Priority { get; }
 
-        byte PP { get; }
-        byte PPMax { get; }
+        byte? PP { get; }
 
-        byte StatusEffectChance { get; }
-        MonsterType StatusEffectType { get; }
+        //byte StatusEffectChance { get; }
+        //MonsterType StatusEffectType { get; }
 
         IScript Script { get; }
     }

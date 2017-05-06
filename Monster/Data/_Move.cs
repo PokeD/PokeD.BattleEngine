@@ -1,8 +1,10 @@
 using System;
+
 using PokeD.BattleEngine.Scripts;
 
 namespace PokeD.BattleEngine.Monster.Data
 {
+    /*
     public class Move
     {
         public static Move None => new Move(0, 0, "NONE");
@@ -52,4 +54,5 @@ namespace PokeD.BattleEngine.Monster.Data
         public bool Contains(Move move) => Move_0 == move || Move_1 == move || Move_2 == move || Move_3 == move;
         public bool Contains(short moveID) => Move_0.ID == moveID || Move_1.ID == moveID || Move_2.ID == moveID || Move_3.ID == moveID;
     }
+    */
 }

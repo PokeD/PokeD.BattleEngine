@@ -8,8 +8,9 @@ namespace PokeD.BattleEngine.Monster.Data
 
         public int ID { get; }
         public string Name { get; }
+        public bool IsHidden { get; }
 
-        public Ability(int id, string name) { ID = id; Name = name; }
+        public Ability(int id, string name, bool isHidden = false) { ID = id; Name = name; IsHidden = isHidden; }
 
         public override string ToString() => $"{Name}, ID: {ID}";
     }

@@ -2,6 +2,7 @@ using PokeD.BattleEngine.Scripts;
 
 namespace PokeD.BattleEngine.Monster.Data
 {
+    /*
     public class HeldItem
     {
         public static HeldItem None => new HeldItem(0, "NONE", 0);
@@ -15,4 +16,5 @@ namespace PokeD.BattleEngine.Monster.Data
 
         public override string ToString() => $"{Name}, ID: {ID}, Rarity: {Rarity}";
     }
+    */
 }

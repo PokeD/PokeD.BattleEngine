@@ -27,10 +27,10 @@ namespace PokeD.BattleEngine.Battle
     }
     public class TurnItem : Turn
     {
-        public TurnItem(int ownerID, IItem Item) : base(ownerID, TurnOption.Item) { }
+        public TurnItem(int ownerID, IItemInstance item) : base(ownerID, TurnOption.Item) { }
     }
     public class TurnAttack : Turn
     {
-        public TurnAttack(int ownerID, IAttack attack, int targetID, int monsterID) : base(ownerID, TurnOption.Attack) { }
+        public TurnAttack(int ownerID, IAttackInstance attack, int targetID, int monsterID) : base(ownerID, TurnOption.Attack) { }
     }
 }
