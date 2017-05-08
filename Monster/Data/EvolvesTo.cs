@@ -44,7 +44,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public ByLevel(byte level) { Level = level; }
 
-            public override string ToString() => $"Level [{Level:000}]";
+            public override string ToString() => $"Level {Level:000}";
         }
         public class ByHappiness : ISubEvolutionCondition
         {
@@ -52,7 +52,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public ByHappiness(byte happiness) { Happiness = happiness; }
 
-            public override string ToString() => $"Happiness [{Happiness:000}]";
+            public override string ToString() => $"Happiness {Happiness:000}";
         }
         public class ByAffection : ISubEvolutionCondition
         {
@@ -60,7 +60,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public ByAffection(byte affection) { Affection = affection; }
 
-            public override string ToString() => $"Affection [{Affection:000}]";
+            public override string ToString() => $"Affection {Affection:000}";
         }
         public class ByAttack : ISubEvolutionCondition
         {
@@ -68,7 +68,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public ByAttack(IAttackStaticData attack) { Attack = attack; }
 
-            public override string ToString() => $"Attack [{Attack}]";
+            public override string ToString() => $"Attack {Attack}";
         }
         public class ByArea : ISubEvolutionCondition
         {
@@ -76,7 +76,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public ByArea(object area) { Area = area; }
 
-            public override string ToString() => $"Area [{Area}]";
+            public override string ToString() => $"Area '{Area}'";
         }
         public class ByTimeOfDay : ISubEvolutionCondition
         {
@@ -98,7 +98,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public ByItem(IItemStaticData item) { Item = item; }
 
-            public override string ToString() => $"Item [{Item}]";
+            public override string ToString() => $"Item {Item}";
         }
         public class ByHeldItem : ISubEvolutionCondition
         {
@@ -106,7 +106,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public ByHeldItem(IItemStaticData heldItem) { HeldItem = heldItem; }
 
-            public override string ToString() => $"Held Item [{HeldItem}]";
+            public override string ToString() => $"Held Item {HeldItem}";
         }
         public class ByGender : ISubEvolutionCondition
         {
@@ -114,7 +114,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public ByGender(Gender gender) { Gender = gender; }
 
-            public override string ToString() => $"Gender [{Gender}]";
+            public override string ToString() => $"Gender {Gender}";
         }
         public class ByBeauty : ISubEvolutionCondition
         {
@@ -122,7 +122,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public ByBeauty(byte beauty) { Beauty = beauty; }
 
-            public override string ToString() => $"Beauty [{Beauty:00}]";
+            public override string ToString() => $"Beauty {Beauty:000}";
         }
         public class ByMonsterInTeam : ISubEvolutionCondition
         {
@@ -130,7 +130,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public ByMonsterInTeam(short monsterID) { MonsterID = monsterID; }
 
-            public override string ToString() => $"Monster In Team [{MonsterID}]";
+            public override string ToString() => $"In Team {MonsterID}";
         }
         public class ByWeather : ISubEvolutionCondition
         {
@@ -138,7 +138,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public ByWeather(Weather weather) { Weather = weather; }
 
-            public override string ToString() => $"Weather [{Weather}]";
+            public override string ToString() => $"Weather {Weather}";
         }
         public class ByKnownAttackType : ISubEvolutionCondition
         {
@@ -146,7 +146,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public ByKnownAttackType(MonsterType attackType) { AttackType = attackType; }
 
-            public override string ToString() => $"Known Attack Type [{AttackType}]";
+            public override string ToString() => $"Known Attack Type {AttackType}";
         }
         public class ByTradeMonster : ISubEvolutionCondition
         {
@@ -154,7 +154,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public ByTradeMonster(short monsterID) { MonsterID = monsterID; }
 
-            public override string ToString() => $"Trade Monster [{MonsterID}]";
+            public override string ToString() => $"Trade {MonsterID}";
         }
 
 

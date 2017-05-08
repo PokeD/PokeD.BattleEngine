@@ -14,11 +14,11 @@ namespace PokeD.BattleEngine.Attack
         DamageClass DamageClass { get; }
         Condition AttackCondition { get; }
 
-        byte? Power { get; }
-        byte? Accuracy { get; }
+        byte Power { get; }
+        byte Accuracy { get; }
         byte Priority { get; }
 
-        byte? PP { get; }
+        byte PP { get; }
 
         //byte StatusEffectChance { get; }
         //MonsterType StatusEffectType { get; }

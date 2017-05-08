@@ -51,6 +51,7 @@
     <Compile Include="Battle\TrainerList.cs" />
     <Compile Include="Battle\Turn.cs" />
     <Compile Include="Exceptions\MaximumSizeExceededException.cs" />
+    <Compile Include="Item\Data\IItemAttribute.cs" />
     <Compile Include="Item\IItemStaticData.cs" />
     <Compile Include="Map\Location.cs" />
     <Compile Include="MersenneTwisterRandom.cs" />
@@ -62,10 +63,9 @@
     <Compile Include="Monster\Enums\ShapeType.cs" />
     <Compile Include="Scripts\IScript.cs" />
     <Compile Include="Item\Bag.cs" />
-    <Compile Include="Item\IItemInstance.cs" />
+    <Compile Include="Item\BaseItemInstance.cs" />
     <Compile Include="Item\IItemContainer.cs" />
     <Compile Include="Monster\Data\EvolvesTo.cs" />
-    <Compile Include="Monster\IMonster.cs" />
     <Compile Include="OrderedInvocationList.cs" />
     <Compile Include="Monster\Data\MonsterType.cs" />
     <Compile Include="Monster\Enums\ExperienceType.cs" />
@@ -76,16 +76,16 @@
     <Compile Include="Monster\Data\_HeldItem.cs" />
     <Compile Include="Monster\Data\_Move.cs" />
     <Compile Include="Monster\Data\Stats.cs" />
-    <Compile Include="Monster\IMonsterInstance.cs" />
+    <Compile Include="Monster\BaseMonsterInstance.cs" />
     <Compile Include="Monster\IMonsterStaticData.cs" />
     <Compile Include="Monster\Calculation\ExperienceCalculator.cs" />
     <Compile Include="Monster\Calculation\StatCalculator.cs" />
-    <Compile Include="Attack\IAttackInstance.cs" />
+    <Compile Include="Attack\BaseAttackInstance.cs" />
     <Compile Include="Attack\IAttackStaticData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Trainer\Data\Gender.cs" />
     <Compile Include="Trainer\Data\IIMonsterTeam.cs" />
-    <Compile Include="Trainer\ITrainerInstanceData.cs" />
+    <Compile Include="Trainer\BaseTrainerInstance.cs" />
     <Compile Include="Trainer\ITrainerStaticData.cs" />
     <Compile Include="Trainer\ITrainer.cs" />
   </ItemGroup>

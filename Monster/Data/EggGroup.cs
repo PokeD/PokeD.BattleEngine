@@ -11,7 +11,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
         public EggGroup(int id, string name) { ID = id; Name = name; }
 
-        public override string ToString() => $"{Name}, ID: {ID}";
+        public override string ToString() => $"{Name}";
     }
 
     public class EggGroups
@@ -33,7 +33,7 @@ namespace PokeD.BattleEngine.Monster.Data
                 throw new ArgumentOutOfRangeException();
         }
 
-        public override string ToString() => $"Type1: {Type_0}; Type2: {Type_1}";
+        public override string ToString() => Type_1.Equals(EggGroup.None) ? $"{Type_0}, {Type_1}" : $"{Type_0}";
 
 
         public bool Contains(EggGroup eggGroup) => Type_0 == eggGroup || Type_1 == eggGroup;

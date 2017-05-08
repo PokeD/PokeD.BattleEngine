@@ -1,4 +1,5 @@
 ﻿using System;
+
 using PokeD.BattleEngine.Trainer;
 
 namespace PokeD.BattleEngine.Battle
@@ -7,10 +8,10 @@ namespace PokeD.BattleEngine.Battle
     {
         public int TrainerID { get; }
 
-        public ITrainer Left { get; }
-        public ITrainer Right { get; }
+        public BaseTrainerInstance Left { get; }
+        public BaseTrainerInstance Right { get; }
 
-        public AdjacentTrainers(int trainerID, ITrainer left, ITrainer right)
+        public AdjacentTrainers(int trainerID, BaseTrainerInstance left, BaseTrainerInstance right)
         {
             TrainerID = trainerID;
 
@@ -22,7 +23,7 @@ namespace PokeD.BattleEngine.Battle
     {
         public byte Sides { get; }
         public byte Trainers { get; }
-        private ITrainer[] _trainers;
+        private BaseTrainerInstance[] _trainers;
 
 
         public TrainerList(byte sides, byte trainers)
@@ -35,12 +36,12 @@ namespace PokeD.BattleEngine.Battle
             Sides = sides;
             Trainers = trainers;
 
-            _trainers = new ITrainer[Sides * Trainers];
+            _trainers = new BaseTrainerInstance[Sides * Trainers];
         }
 
         //public ITrainer this[int id] { get { return _trainers.Single(trainer => trainer.ID == id); } }
-        public ITrainer this[byte index] { get { return _trainers[index]; } set { _trainers[index] = value; } }
-        public ITrainer this[byte side, byte trainerPos]
+        public BaseTrainerInstance this[byte index] { get { return _trainers[index]; } set { _trainers[index] = value; } }
+        public BaseTrainerInstance this[byte side, byte trainerPos]
         {
             get
             {
@@ -73,8 +74,8 @@ namespace PokeD.BattleEngine.Battle
         }
         public AdjacentTrainers GetAdjacentTrainers(int trainerID)
         {
-            ITrainer left = null;
-            ITrainer right = null;
+            BaseTrainerInstance left = null;
+            BaseTrainerInstance right = null;
 
             var trainerInfo = GetTrainerInfo(trainerID);
             if (trainerInfo.Item2 > 0)

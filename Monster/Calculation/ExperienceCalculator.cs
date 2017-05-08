@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 
+using PokeD.BattleEngine.Item.Data;
 using PokeD.BattleEngine.Trainer;
 using PokeD.BattleEngine.Monster.Data;
 
@@ -7,19 +9,20 @@ namespace PokeD.BattleEngine.Monster.Calculation
 {
     public static class ExperienceCalculator
     {
-        public static int GainExperience(ITrainerInstanceData trainer, BaseMonsterInstance victorious, BaseMonsterInstance fainted, bool hasParticipatedAndExpShare = false, bool useScaled = false)
+        public static int GainExperience(BaseTrainerInstance trainer, BaseMonsterInstance victorious, BaseMonsterInstance fainted, bool hasParticipatedAndExpShare = false, bool useScaled = false)
         {
             double a = fainted.CatchInfo.TrainerID == 0 ? 1D : 1.5D; // is wild
             double b = fainted.StaticData.RewardExperience;
-            double e = victorious.HeldItem == 0 ? 1.5D : 0D;
+            double e = victorious.HeldItem.StaticData.Attributes.Any(att => att is ItemAttributeBonusExp) ? 1.5D : 0D;
             double f = victorious.Affection >= 2 ? 1.2D : 1D;
             double l = fainted.Level;
             double lp = victorious.Level;
             double p = 1D;
             double s = hasParticipatedAndExpShare ? 2D : 1D;
-            double t = trainer.TrainerID == victorious.CatchInfo.TrainerID ? 1.5D : 1D;
-            //double v = victorious.Level > victorious.StaticData.LevelEvolveRequirement ? 1.2 : 1;
-            double v = 1;
+            double t = trainer.ID == victorious.CatchInfo.TrainerID ? 1.5D : 1D;
+            var minLevelEvolveRequirement = victorious.StaticData.EvolvesTo.Min(et => et.EvolutionConditions.Min(ec => ec.SubConditions.Where(sc => sc is EvolvesTo.ByLevel).Cast<EvolvesTo.ByLevel>().Min(sc => sc.Level)));
+            double v = victorious.Level > minLevelEvolveRequirement ? 1.2 : 1;
+            //double v = 1;
 
             if (!useScaled)
                 return (int) ((a * t * b * e * l * p * f * v) / 7D * s);
@@ -34,8 +37,9 @@ namespace PokeD.BattleEngine.Monster.Calculation
                 return 1;
 
             byte level = 1;
-            while (ExperienceNeededForLevel(experienceType, level) <= experience)
+            while (ExperienceNeededForLevel(experienceType, level) < experience)
                 level++;
+            level--;
 
             return level;
         }
@@ -90,6 +94,7 @@ namespace PokeD.BattleEngine.Monster.Calculation
         {
             // EXP =
             // (pow(level, 3))
+            var t = Math.Pow(level, 3D);
 
             return Math.Pow(level, 3D);
         }

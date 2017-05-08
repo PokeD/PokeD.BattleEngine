@@ -9,6 +9,6 @@ namespace PokeD.BattleEngine.Monster.Data
 
         public Habitat(int id, string name) { ID = id; Name = name; }
 
-        public override string ToString() => $"{Name}, ID: {ID}";
+        public override string ToString() => $"{Name}";
     }
 }

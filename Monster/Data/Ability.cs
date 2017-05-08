@@ -12,7 +12,7 @@ namespace PokeD.BattleEngine.Monster.Data
 
         public Ability(int id, string name, bool isHidden = false) { ID = id; Name = name; IsHidden = isHidden; }
 
-        public override string ToString() => $"{Name}, ID: {ID}";
+        public override string ToString() => $"{Name}";
     }
 
     public class Abilities
@@ -38,7 +38,7 @@ namespace PokeD.BattleEngine.Monster.Data
                 throw new ArgumentOutOfRangeException();
         }
 
-        public override string ToString() => $"Ability1: {Ability_0}; Ability2: {Ability_1}";
+        public override string ToString() => $"{Ability_0}, {Ability_1}";
 
 
         public bool Contains(Ability ability) => Ability_0 == ability || Ability_1 == ability || Ability_2 == ability;

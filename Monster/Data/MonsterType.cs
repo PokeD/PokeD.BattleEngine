@@ -4,14 +4,14 @@ namespace PokeD.BattleEngine.Monster.Data
 {
     public class MonsterType
     {
-        public static MonsterType None => new MonsterType(0, "EMPTY");
+        public static MonsterType None => new MonsterType(0, "NONE");
 
         public int ID { get; }
         public string Name { get; }
 
         public MonsterType(int id, string name) { ID = id; Name = name; }
 
-        public override string ToString() => $"{Name}, ID: {ID}";
+        public override string ToString() => $"{Name}";
     }
 
     public class MonsterTypes
@@ -33,7 +33,7 @@ namespace PokeD.BattleEngine.Monster.Data
                 throw new Exception();
         }
 
-        public override string ToString() => $"Type1: {Type_0}; Type2: {Type_1}";
+        public override string ToString() => Type_1.Equals(MonsterType.None) ? $"{Type_0}, {Type_1}" : $"{Type_0}";
 
 
         public bool Contains(MonsterType type) => Type_0 == type || Type_1 == type;

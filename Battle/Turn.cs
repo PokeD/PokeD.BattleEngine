@@ -23,14 +23,14 @@ namespace PokeD.BattleEngine.Battle
     }
     public class TurnSwitch : Turn
     {
-        public TurnSwitch(int ownerID, IMonster toSwitch) : base(ownerID, TurnOption.Switch) { }
+        public TurnSwitch(int ownerID, BaseMonsterInstance toSwitch) : base(ownerID, TurnOption.Switch) { }
     }
     public class TurnItem : Turn
     {
-        public TurnItem(int ownerID, IItemInstance item) : base(ownerID, TurnOption.Item) { }
+        public TurnItem(int ownerID, BaseItemInstance item) : base(ownerID, TurnOption.Item) { }
     }
     public class TurnAttack : Turn
     {
-        public TurnAttack(int ownerID, IAttackInstance attack, int targetID, int monsterID) : base(ownerID, TurnOption.Attack) { }
+        public TurnAttack(int ownerID, BaseAttackInstance attack, int targetID, int monsterID) : base(ownerID, TurnOption.Attack) { }
     }
 }
