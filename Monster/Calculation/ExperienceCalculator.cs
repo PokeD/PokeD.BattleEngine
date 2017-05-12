@@ -4,6 +4,7 @@ using System.Linq;
 using PokeD.BattleEngine.Item.Data;
 using PokeD.BattleEngine.Trainer;
 using PokeD.BattleEngine.Monster.Data;
+using PokeD.BattleEngine.Monster.Enums;
 
 namespace PokeD.BattleEngine.Monster.Calculation
 {

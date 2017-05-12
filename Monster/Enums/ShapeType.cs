@@ -1,4 +1,4 @@
-﻿namespace PokeD.BattleEngine.Monster.Data
+﻿namespace PokeD.BattleEngine.Monster.Enums
 {
     public enum ShapeType
     {

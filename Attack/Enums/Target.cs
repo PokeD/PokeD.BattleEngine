@@ -1,4 +1,4 @@
-﻿namespace PokeD.BattleEngine.Attack.Data
+﻿namespace PokeD.BattleEngine.Attack.Enums
 {
     public enum Target
     {  

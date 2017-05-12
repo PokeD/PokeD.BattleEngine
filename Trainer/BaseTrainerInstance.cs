@@ -1,5 +1,6 @@
 ﻿using PokeD.BattleEngine.Item;
 using PokeD.BattleEngine.Trainer.Data;
+using PokeD.BattleEngine.Trainer.Enums;
 
 namespace PokeD.BattleEngine.Trainer
 {

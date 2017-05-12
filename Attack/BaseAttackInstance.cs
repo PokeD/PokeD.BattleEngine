@@ -1,7 +1,5 @@
 ﻿using System;
 
-using PokeD.BattleEngine.Monster;
-
 namespace PokeD.BattleEngine.Attack
 {
     public abstract class BaseAttackInstance

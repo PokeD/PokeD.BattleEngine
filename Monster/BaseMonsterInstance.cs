@@ -7,6 +7,7 @@ using PokeD.BattleEngine.Item;
 using PokeD.BattleEngine.Item.Data;
 using PokeD.BattleEngine.Monster.Calculation;
 using PokeD.BattleEngine.Monster.Data;
+using PokeD.BattleEngine.Monster.Enums;
 using PokeD.BattleEngine.Trainer;
 
 namespace PokeD.BattleEngine.Monster

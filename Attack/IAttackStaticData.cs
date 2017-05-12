@@ -1,4 +1,4 @@
-﻿using PokeD.BattleEngine.Attack.Data;
+﻿using PokeD.BattleEngine.Attack.Enums;
 using PokeD.BattleEngine.Type;
 
 namespace PokeD.BattleEngine.Attack

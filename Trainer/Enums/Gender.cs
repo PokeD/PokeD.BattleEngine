@@ -1,4 +1,4 @@
-﻿namespace PokeD.BattleEngine.Trainer.Data
+﻿namespace PokeD.BattleEngine.Trainer.Enums
 {
     public enum Gender
     {

@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+
 using PokeD.BattleEngine.Ability;
 using PokeD.BattleEngine.Attack.Data;
 using PokeD.BattleEngine.EggGroup;
 using PokeD.BattleEngine.Item;
 using PokeD.BattleEngine.Monster.Data;
+using PokeD.BattleEngine.Monster.Enums;
 using PokeD.BattleEngine.Type;
 
 namespace PokeD.BattleEngine.Monster

@@ -1,6 +1,7 @@
 using System;
 
 using PokeD.BattleEngine.Monster.Data;
+using PokeD.BattleEngine.Monster.Enums;
 
 namespace PokeD.BattleEngine.Monster.Calculation
 {

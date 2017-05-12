@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using PokeD.BattleEngine.Attack;
 using PokeD.BattleEngine.Battle.Data;
 using PokeD.BattleEngine.Item;
+using PokeD.BattleEngine.Monster.Enums;
 using PokeD.BattleEngine.Type;
 
 namespace PokeD.BattleEngine.Monster.Data

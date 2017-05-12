@@ -1,5 +1,7 @@
 using System;
 
+using PokeD.BattleEngine.Monster.Enums;
+
 namespace PokeD.BattleEngine.Monster.Data
 {
     public class Stats
