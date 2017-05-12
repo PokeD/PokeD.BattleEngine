@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
-
+using PokeD.BattleEngine.Ability;
 using PokeD.BattleEngine.Attack.Data;
+using PokeD.BattleEngine.EggGroup;
 using PokeD.BattleEngine.Item;
 using PokeD.BattleEngine.Monster.Data;
+using PokeD.BattleEngine.Type;
 
 namespace PokeD.BattleEngine.Monster
 {
@@ -14,7 +16,7 @@ namespace PokeD.BattleEngine.Monster
         int Height { get; }
         int Weight { get; }
 
-        MonsterTypes Types { get; }
+        Types Types { get; }
         EggGroups EggGroups { get; }
 
         Stats BaseStats { get; }

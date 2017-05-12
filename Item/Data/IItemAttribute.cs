@@ -37,4 +37,12 @@
     {
 
     }
+    public class ItemAttributePreventsEvolution : IItemAttribute
+    {
+
+    }
+    public class ItemAttributePassDownNature : IItemAttribute
+    {
+
+    }
 }

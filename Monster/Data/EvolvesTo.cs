@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using PokeD.BattleEngine.Attack;
 using PokeD.BattleEngine.Battle.Data;
 using PokeD.BattleEngine.Item;
+using PokeD.BattleEngine.Type;
 
 namespace PokeD.BattleEngine.Monster.Data
 {
@@ -142,9 +144,9 @@ namespace PokeD.BattleEngine.Monster.Data
         }
         public class ByKnownAttackType : ISubEvolutionCondition
         {
-            public MonsterType AttackType { get; }
+            public ITypeStaticData AttackType { get; }
 
-            public ByKnownAttackType(MonsterType attackType) { AttackType = attackType; }
+            public ByKnownAttackType(ITypeStaticData attackType) { AttackType = attackType; }
 
             public override string ToString() => $"Known Attack Type {AttackType}";
         }
@@ -156,7 +158,14 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public override string ToString() => $"Trade {MonsterID}";
         }
+        public class ByMonsterStat : ISubEvolutionCondition
+        {
+            public Func<Stats, bool> Condition { get; }
 
+            public ByMonsterStat(Func<Stats, bool> condition) { Condition = condition; }
+
+            public override string ToString() => $"Stat Condition";
+        }
 
 
 

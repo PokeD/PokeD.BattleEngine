@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using PokeD.BattleEngine.Ability;
 using PokeD.BattleEngine.Attack;
 using PokeD.BattleEngine.Item;
 using PokeD.BattleEngine.Item.Data;
@@ -21,7 +22,7 @@ namespace PokeD.BattleEngine.Monster
 
         public virtual Gender Gender { get; protected set; }
 
-        public virtual Ability Ability { get; protected set; }
+        public virtual BaseAbility Ability { get; protected set; }
         public virtual byte Nature { get; protected set; }
 
         public virtual long Experience { get; protected set; }
