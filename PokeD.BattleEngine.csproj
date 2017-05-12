@@ -80,6 +80,7 @@
     <Compile Include="Attack\BaseAttackInstance.cs" />
     <Compile Include="Attack\IAttackStaticData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trainer\Data\IIMonsterTeam.cs" />
     <Compile Include="Trainer\Enums\Gender.cs" />
     <Compile Include="Trainer\BaseTrainerInstance.cs" />
     <Compile Include="Trainer\ITrainerStaticData.cs" />
