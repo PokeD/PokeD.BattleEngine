@@ -35,11 +35,11 @@ namespace PokeD.BattleEngine.Battle
 
 
 
-    public interface IUpdatable { void Update(); }
+    //public interface IUpdatable { void Update(); }
     public enum BattleState { WaitingForTrainers, Started, Ended }
 
     // -- Guess the best way is to store Trainer class and operate mostly with it's ID.
-    public abstract class Battle : IUpdatable
+    public abstract class Battle
     {
         #region Events
         private OrderedInvocationList _BattleStarted;

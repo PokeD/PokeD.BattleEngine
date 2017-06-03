@@ -96,7 +96,7 @@ namespace PokeD.BattleEngine
             }
         }
     }
-    public class OrderedInvocationList<T>
+    public class OrderedInvocationList<T> : IDisposable
     {
         private object _listLock { get; } = new object();
 
@@ -187,7 +187,7 @@ namespace PokeD.BattleEngine
             }
         }
     }
-    public class OrderedInvocationList<T1, T2>
+    public class OrderedInvocationList<T1, T2> : IDisposable
     {
         private object _listLock { get; } = new object();
 

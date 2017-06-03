@@ -12,7 +12,7 @@ namespace PokeD.BattleEngine.Attack
 
 
         public BaseAttackInstance(IAttackStaticData staticData) { StaticData = staticData; PPCurrent = StaticData.PP; }
-        public BaseAttackInstance(IAttackStaticData staticData, byte pp, byte ppUps) : this(staticData) { PPCurrent = pp; PPUps = ppUps; }
+        public BaseAttackInstance(IAttackStaticData staticData, byte ppCurrent, byte ppUps) : this(staticData) { PPCurrent = ppCurrent; PPUps = ppUps; }
 
         public override string ToString() => $"{PPCurrent,2}/{PPMax,2} {StaticData}";
     }

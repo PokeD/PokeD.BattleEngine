@@ -33,7 +33,7 @@ namespace PokeD.BattleEngine.Monster
         public virtual Stats EV { get; protected set; } = Stats.None;
 
         public virtual short CurrentHP { get; protected set; }
-        public virtual short StatusEffect { get; protected set; }
+        public virtual byte StatusEffect { get; protected set; }
 
         public virtual byte Affection { get; protected set; }
         public virtual byte Friendship { get; protected set; }
