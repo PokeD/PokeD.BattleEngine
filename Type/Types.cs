@@ -23,6 +23,6 @@ namespace PokeD.BattleEngine.Type
 
 
         public bool Contains(ITypeStaticData type) => Type_0 == type || Type_1 == type;
-        public bool Contains(byte type) => Type_0.ID == type || Type_1.ID == type;
+        public bool Contains(byte type) => Type_0?.ID == type || Type_1?.ID == type;
     }
 }

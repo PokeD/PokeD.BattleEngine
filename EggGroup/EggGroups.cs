@@ -23,6 +23,6 @@ namespace PokeD.BattleEngine.EggGroup
 
 
         public bool Contains(IEggGroupStaticData eggGroup) => Type_0 == eggGroup || Type_1 == eggGroup;
-        public bool Contains(byte eggGroupID) => Type_0.ID == eggGroupID || Type_1.ID == eggGroupID;
+        public bool Contains(byte eggGroupID) => Type_0?.ID == eggGroupID || Type_1?.ID == eggGroupID;
     }
 }
