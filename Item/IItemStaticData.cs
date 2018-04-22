@@ -9,6 +9,6 @@ namespace PokeD.BattleEngine.Item
         int ID { get; }
         string Name { get; }
 
-        IList<IItemAttribute> Attributes { get; }
+        IReadOnlyList<IItemAttribute> Attributes { get; }
     }
 }

@@ -26,7 +26,7 @@ namespace PokeD.BattleEngine.Monster
 
         Abilities Abilities { get; }
 
-        IList<IItemStaticData> HeldItems { get; }
+        IReadOnlyList<IItemStaticData> HeldItems { get; }
 
         byte CatchRate { get; }
         //byte EscapeRate { get; }
@@ -49,8 +49,8 @@ namespace PokeD.BattleEngine.Monster
         short RewardExperience { get; }
         Stats RewardStats { get; }
 
-        IList<EvolvesTo> EvolvesTo { get; }
+        IReadOnlyList<EvolvesTo> EvolvesTo { get; }
 
-        IList<AttackLearn> LearnableAttacks { get; }
+        IReadOnlyList<AttackLearn> LearnableAttacks { get; }
     }
 }

@@ -13,29 +13,29 @@ namespace PokeD.BattleEngine.Monster.Data
     {
         public interface IEvolutionCondition
         {
-            IList<ISubEvolutionCondition> SubConditions { get; }
+            IReadOnlyList<ISubEvolutionCondition> SubConditions { get; }
         }
         public class ByLevelUp : IEvolutionCondition
         {
-            public IList<ISubEvolutionCondition> SubConditions { get; }
+            public IReadOnlyList<ISubEvolutionCondition> SubConditions { get; }
 
-            public ByLevelUp(IList<ISubEvolutionCondition> subConditions) { SubConditions = subConditions; }
+            public ByLevelUp(IReadOnlyList<ISubEvolutionCondition> subConditions) { SubConditions = subConditions; }
 
             public override string ToString() => $"By LevelUp";
         }
         public class ByItemUse : IEvolutionCondition
         {
-            public IList<ISubEvolutionCondition> SubConditions { get; }
+            public IReadOnlyList<ISubEvolutionCondition> SubConditions { get; }
 
-            public ByItemUse(IList<ISubEvolutionCondition> subConditions) { SubConditions = subConditions; }
+            public ByItemUse(IReadOnlyList<ISubEvolutionCondition> subConditions) { SubConditions = subConditions; }
 
             public override string ToString() => $"By Item Use";
         }
         public class ByTrade : IEvolutionCondition
         {
-            public IList<ISubEvolutionCondition> SubConditions { get; }
+            public IReadOnlyList<ISubEvolutionCondition> SubConditions { get; }
 
-            public ByTrade(IList<ISubEvolutionCondition> subConditions) { SubConditions = subConditions; }
+            public ByTrade(IReadOnlyList<ISubEvolutionCondition> subConditions) { SubConditions = subConditions; }
 
             public override string ToString() => $"By Trade";
         }
@@ -172,10 +172,10 @@ namespace PokeD.BattleEngine.Monster.Data
 
         public IMonsterStaticData Monster { get; }
 
-        public IList<IEvolutionCondition> EvolutionConditions { get; } = new List<IEvolutionCondition>();
+        public IReadOnlyList<IEvolutionCondition> EvolutionConditions { get; }
 
 
-        public EvolvesTo(IMonsterStaticData monster, IList<IEvolutionCondition> evolutionConditions) { Monster = monster; EvolutionConditions = evolutionConditions; }
+        public EvolvesTo(IMonsterStaticData monster, IReadOnlyList<IEvolutionCondition> evolutionConditions) { Monster = monster; EvolutionConditions = evolutionConditions; }
 
         public override string ToString() => $"{Monster}";
     }
