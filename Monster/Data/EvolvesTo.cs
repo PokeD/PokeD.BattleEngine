@@ -133,7 +133,15 @@ namespace PokeD.BattleEngine.Monster.Data
 
             public ByMonsterInTeam(short monsterID) { MonsterID = monsterID; }
 
-            public override string ToString() => $"In Team {MonsterID}";
+            public override string ToString() => $"In Team Monster {MonsterID}";
+        }
+        public class ByMonsterTypeInTeam : ISubEvolutionCondition
+        {
+            public ITypeStaticData MonsterType { get; }
+
+            public ByMonsterTypeInTeam(ITypeStaticData monsterType) { MonsterType = monsterType; }
+
+            public override string ToString() => $"In Team Monster Type {MonsterType}";
         }
         public class ByWeather : ISubEvolutionCondition
         {
