@@ -2,7 +2,7 @@ namespace PokeD.BattleEngine.Monster.Data
 {
     public class Habitat
     {
-        public static Habitat None => new Habitat(0, "NONE");
+        public static Habitat None => new(0, "NONE");
 
         public int ID { get; }
         public string Name { get; }

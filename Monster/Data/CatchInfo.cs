@@ -2,7 +2,7 @@ namespace PokeD.BattleEngine.Monster.Data
 {
     public class CatchInfo
     {
-        public static CatchInfo None => new CatchInfo();
+        public static CatchInfo None => new();
 
         public string Full => $"{Method} {Location}";
         public string Method { get; set; } = string.Empty;

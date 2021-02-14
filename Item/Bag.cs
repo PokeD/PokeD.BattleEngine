@@ -4,7 +4,7 @@ namespace PokeD.BattleEngine.Item
 {
     public class Bag : IItemContainer
     {
-        public List<BaseItemInstance> Items { get; } = new List<BaseItemInstance>();
+        public List<BaseItemInstance> Items { get; } = new();
 
         public bool AttachItem(BaseItemInstance item)
         {

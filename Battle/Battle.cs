@@ -79,7 +79,7 @@ namespace PokeD.BattleEngine.Battle
 
         protected TrainerList Trainers;
 
-        protected Dictionary<int, Turn> Turns { get; } = new Dictionary<int, Turn>(); // -- Expand Trainer class with Turn class.
+        protected Dictionary<int, Turn> Turns { get; } = new(); // -- Expand Trainer class with Turn class.
         protected bool TrainersReady => Turns.All(pair => pair.Value != null);
 
         protected BattleState BattleState { get; set; } = BattleState.WaitingForTrainers;

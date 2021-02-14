@@ -7,11 +7,11 @@ namespace PokeD.BattleEngine
 
     public class OrderedInvocationList : IDisposable
     {
-        private object _listLock { get; } = new object();
+        private object _listLock { get; } = new();
 
-        private List<Action> InvocationListBegin= new List<Action>();
-        private List<Action> InvocationListNormal = new List<Action>();
-        private List<Action> InvocationListEnd = new List<Action>();
+        private List<Action> InvocationListBegin= new();
+        private List<Action> InvocationListNormal = new();
+        private List<Action> InvocationListEnd = new();
 
 
         public void Add(Action action)
@@ -98,11 +98,11 @@ namespace PokeD.BattleEngine
     }
     public class OrderedInvocationList<T> : IDisposable
     {
-        private object _listLock { get; } = new object();
+        private object _listLock { get; } = new();
 
-        private List<Action<T>> InvocationListBegin = new List<Action<T>>();
-        private List<Action<T>> InvocationListNormal = new List<Action<T>>();
-        private List<Action<T>> InvocationListEnd = new List<Action<T>>();
+        private List<Action<T>> InvocationListBegin = new();
+        private List<Action<T>> InvocationListNormal = new();
+        private List<Action<T>> InvocationListEnd = new();
 
 
         public void Add(Action<T> action)
@@ -189,11 +189,11 @@ namespace PokeD.BattleEngine
     }
     public class OrderedInvocationList<T1, T2> : IDisposable
     {
-        private object _listLock { get; } = new object();
+        private object _listLock { get; } = new();
 
-        private List<Action<T1, T2>> InvocationListBegin = new List<Action<T1, T2>>();
-        private List<Action<T1, T2>> InvocationListNormal = new List<Action<T1, T2>>();
-        private List<Action<T1, T2>> InvocationListEnd = new List<Action<T1, T2>>();
+        private List<Action<T1, T2>> InvocationListBegin = new();
+        private List<Action<T1, T2>> InvocationListNormal = new();
+        private List<Action<T1, T2>> InvocationListEnd = new();
 
 
         public void Add(Action<T1, T2> action)

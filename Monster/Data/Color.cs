@@ -2,7 +2,7 @@ namespace PokeD.BattleEngine.Monster.Data
 {
     public class Color
     {
-        public static Color None => new Color(0, "NONE");
+        public static Color None => new(0, "NONE");
 
         public int ID { get; }
         public string Name { get; }

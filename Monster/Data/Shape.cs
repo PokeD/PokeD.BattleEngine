@@ -2,7 +2,7 @@ namespace PokeD.BattleEngine.Monster.Data
 {
     public class Shape
     {
-        public static Shape None => new Shape(0, "NONE");
+        public static Shape None => new(0, "NONE");
 
         public int ID { get; }
         public string Name { get; }

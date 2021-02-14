@@ -6,7 +6,7 @@ namespace PokeD.BattleEngine.Monster.Data
 {
     public class Stats
     {
-        public static Stats None => new Stats(0, 0, 0, 0, 0, 0);
+        public static Stats None => new(0, 0, 0, 0, 0, 0);
 
         public short HP { get; }
         public short Attack { get; }

@@ -7,7 +7,7 @@ namespace PokeD.BattleEngine.Trainer.Data
 {
     public class MonsterTeam : IEnumerable<BaseMonsterInstance>
     {
-        public List<BaseMonsterInstance> List { get; } = new List<BaseMonsterInstance>();
+        public List<BaseMonsterInstance> List { get; } = new();
 
         public IEnumerator<BaseMonsterInstance> GetEnumerator() => List.GetEnumerator();
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
